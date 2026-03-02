@@ -49,11 +49,41 @@ public class Garis {
     }
 
     // Operator
-    public double panjangGaris(Garis G) {
-        double absisDist = (G.getT0()).getAbsis() - (G.getT1()).getAbsis();
-        double ordinatDist = (G.getT0()).getOrdinat() - (G.getT1()).getOrdinat();
+    public double panjangGaris() {
+        double absisDist = getT0().getAbsis() - getT1().getAbsis();
+        double ordinatDist = getT0().getOrdinat() - getT1().getOrdinat();
         
         return Math.sqrt(Math.pow(absisDist, 2) + Math.pow(ordinatDist, 2));
+    }
+
+    public double Gradien() {
+        double deltaOrdinat = getT1().getOrdinat() - getT0().getOrdinat();
+        double deltaAbsis = getT1().getAbsis() - getT0().getAbsis();
+
+        return deltaOrdinat / deltaAbsis;
+    }
+
+    public Titik titikTengah() {
+        double midAbsis = (getT0().getAbsis() + getT1().getAbsis()) / 2;
+        double midOrdinat = (getT0().getOrdinat() + getT1().getOrdinat()) / 2;
+
+        return new Titik(midAbsis, midOrdinat);
+    }
+
+    public boolean isSejajar(Garis G) {
+        return Gradien() == G.Gradien();
+    }
+
+    public boolean isTegakLurus(Garis G) {
+        return Gradien() * G.Gradien() == -1;
+    }
+
+    public void printGaris() {
+        System.out.println("\nTitik T0: ");
+        getT0().printTitik();
+        System.out.println("Titik T1: ");
+        getT1().printTitik();
+        System.out.println("\n");
     }
 
 }
