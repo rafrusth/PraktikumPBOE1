@@ -1,4 +1,4 @@
-package P4;
+package src;
 
 public /* final */ class BangunDatar {
     /* === ATRIBUT === */
