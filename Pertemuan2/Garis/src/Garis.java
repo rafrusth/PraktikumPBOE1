@@ -2,7 +2,7 @@
  * Deskripsi : Class Garis yang merepresentasikan konsep Garis pada koordinat kartesius
                 (dengan melibatkan class Titik, karena Garis terkomposisi atas Titik)
  * Pembuat   : Rafif Setya Imaduddin (24060124130115)
- * Tanggal   : 2 Maret 2026
+ * Tanggal   : 27 Februari 2026
  */
 
 public class Garis {

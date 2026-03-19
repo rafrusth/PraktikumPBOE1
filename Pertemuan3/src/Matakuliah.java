@@ -1,3 +1,9 @@
+/* Nama File : Matakuliah.java
+ * Deskripsi : Class Matakuliah
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
 public class Matakuliah {
     /* === ATRIBUT === */
     private String idMatKul;

@@ -1,11 +1,8 @@
-/* Nama File : Garis.java
- * Deskripsi : Class Garis yang merepresentasikan konsep Garis pada koordinat kartesius
-                (dengan melibatkan class Titik, karena Garis terkomposisi atas Titik)
+/* Nama File : MGaris.java
+ * Deskripsi : Driver Class Garis
  * Pembuat   : Rafif Setya Imaduddin (24060124130115)
- * Tanggal   : 2 Maret 2026
+ * Tanggal   : 27 Februari 2026
  */
-
-import ba1.Titik;
 
 public class MGaris {
     public static void main(String[] args) {

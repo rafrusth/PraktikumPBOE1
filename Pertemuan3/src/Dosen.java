@@ -1,3 +1,9 @@
+/* Nama File : Dosen.java
+ * Deskripsi : Class Dosen
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
 public class Dosen {
     /* === ATRIBUT === */
     private String NIP;

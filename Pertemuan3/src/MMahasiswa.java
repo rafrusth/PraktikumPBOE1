@@ -1,3 +1,9 @@
+/* Nama File : MMatakuliah.java
+ * Deskripsi : Driver Class Matakuliah
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
 public class MMahasiswa {
     public static void main(String[] Args) {
         Mahasiswa M1 = new Mahasiswa();

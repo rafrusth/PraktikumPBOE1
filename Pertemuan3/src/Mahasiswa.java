@@ -1,3 +1,9 @@
+/* Nama File : Mahasiswa.java
+ * Deskripsi : Class Mahasiswa
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
 import java.util.ArrayList;
 
 public class Mahasiswa {
