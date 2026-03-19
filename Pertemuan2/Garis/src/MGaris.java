@@ -1,7 +1,7 @@
 /* Nama File : MGaris.java
  * Deskripsi : Driver Class Garis
  * Pembuat   : Rafif Setya Imaduddin (24060124130115)
- * Tanggal   : 27 Februari 2026
+ * Tanggal   : 2 Maret 2026
  */
 
 public class MGaris {
