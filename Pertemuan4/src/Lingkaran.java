@@ -1,3 +1,9 @@
+/* Nama File : Lingkaran.java
+ * Deskripsi : Class Lingkaran, SubClass Abstract Bangun Datar
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
 package P4;
 
 import java.lang.Math;

@@ -1,4 +1,10 @@
-package src;
+/* Nama File : BangunDatar.java
+ * Deskripsi : Abstract Class Bangun Datar
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 5 Maret 2026
+ */
+
+package P4;
 
 public /* final */ class BangunDatar {
     /* === ATRIBUT === */

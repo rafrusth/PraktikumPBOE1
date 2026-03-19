@@ -1,3 +1,9 @@
+/* Nama File : DosenTetap.java
+ * Deskripsi : Class Dosen Tetap, SubClass Abstract Dosen
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 19 Maret 2026
+ */
+
 package P4.Latihan;
 
 import java.text.NumberFormat;

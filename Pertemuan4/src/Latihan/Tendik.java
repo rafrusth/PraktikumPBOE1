@@ -1,3 +1,9 @@
+/* Nama File : Tendik.java
+ * Deskripsi : Class Tendik, SubClass Abstract Pegawai
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 19 Maret 2026
+ */
+
 package P4.Latihan;
 
 import java.text.NumberFormat;

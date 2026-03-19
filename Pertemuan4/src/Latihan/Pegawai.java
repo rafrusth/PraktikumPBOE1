@@ -1,3 +1,9 @@
+/* Nama File : Pegawai.java
+ * Deskripsi : Abstract Class Pegawai
+ * Pembuat   : Rafif Setya Imaduddin (24060124130115)
+ * Tanggal   : 18 Maret 2026
+ */
+
 package P4.Latihan;
 
 import java.text.NumberFormat;
