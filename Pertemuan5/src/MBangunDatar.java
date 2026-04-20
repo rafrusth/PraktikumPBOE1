@@ -15,6 +15,8 @@ public class MBangunDatar {
         // Persegi
         System.out.println("Sisi P1: " + P1.getJmlSisi());
         P1.setSisi(5);
+        P1.setBorder("Arsir");
+        P1.setWarna("Turquoise");
 
         System.out.println("Luas P2: " + P2.getLuas());
         System.out.println("Keliling P1: " + P1.getKeliling());
