@@ -29,8 +29,11 @@ public class SerializePerson {
         try {
             FileOutputStream f = new FileOutputStream("person.ser");
             ObjectOutputStream s = new ObjectOutputStream(f);
+
             s.writeObject(person);
+
             System.out.println("Selesai menulis objek Person");
+            
             s.close();
         } catch(IOException e) {
             e.printStackTrace();

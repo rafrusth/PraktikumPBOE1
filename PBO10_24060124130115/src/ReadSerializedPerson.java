@@ -14,8 +14,10 @@ public class ReadSerializedPerson {
         try {
             FileInputStream f = new FileInputStream("person.ser");
             ObjectInputStream s = new ObjectInputStream(f);
+
             person = (Person) s.readObject();
             s.close();
+            
             System.out.println("Serialized Person name: " + person.getName());
         } catch(Exception ioe) {
             ioe.printStackTrace();
