@@ -6,6 +6,11 @@ package com.mycompany.p11;
 
 import javax.swing.DefaultListModel;
 import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -205,21 +210,89 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldItemActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        addItem(jTextFieldItem.getText());
+        String namaItem = jTextFieldItem.getText();
+        
+        if (namaItem.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nama item tidak boleh kosong!");
+            return;
+        }
+
+        // Tambah ke GUI
+        addItem(namaItem);
+        
+        // Tambah ke DB
+        try (Connection conn = getConnection()) {
+            if (conn != null) {
+                String sql = "INSERT INTO items (nama_item) VALUES (?)";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, namaItem);
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Gagal menyimpan ke database: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         jTextFieldItem.setText("");
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         int index = jListItem.getSelectedIndex();
-        String selected = jTextFieldItem.getText();
-        dlm.setElementAt(selected, index);
+        if (index == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih item di list dulu");
+            return;
+        }
+        
+        String namaLama = dlm.getElementAt(index);
+        String namaBaru = jTextFieldItem.getText();
+        
+        if (namaBaru.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nama item baru tidak boleh kosong");
+            return;
+        }
+
+        // Update di GUI
+        dlm.setElementAt(namaBaru, index);
+        
+        // Update di DB
+        try (Connection conn = getConnection()) {
+            if (conn != null) {
+                String sql = "UPDATE items SET nama_item = ? WHERE nama_item = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, namaBaru);
+                pstmt.setString(2, namaLama);
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Gagal mengupdate database: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
         jTextFieldItem.setText("");
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         int index = jListItem.getSelectedIndex();
+        if (index == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih item di list dulu");
+            return;
+        }
+
+        String namaItem = dlm.getElementAt(index);
+        
+        // Hapus dari GUI
         dlm.removeElementAt(index);
+        
+        // Hapus dari DB
+        try (Connection conn = getConnection()) {
+            if (conn != null) {
+                String sql = "DELETE FROM items WHERE nama_item = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, namaItem);
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Gagal menghapus dari database: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
         jTextFieldItem.setText("");
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
@@ -333,6 +406,21 @@ public class GUI extends javax.swing.JFrame {
         }
         
         return teks;
+    }
+    
+    private Connection getConnection() {
+        String url = "jdbc:mysql://localhost:3306/pbo_11";
+        String user = "root";
+        String password = "1123e"; 
+        
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, user, password);
+             System.out.println("Koneksi Berhasil!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Koneksi Database Gagal: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return conn;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

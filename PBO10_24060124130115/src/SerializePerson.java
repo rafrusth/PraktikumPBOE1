@@ -11,7 +11,6 @@ class Person implements Serializable {
     /* === ATRIBUT === */
     private String name;
 
-
     /* === OPERATOR === */
     public Person(String n) {
         name = n;
